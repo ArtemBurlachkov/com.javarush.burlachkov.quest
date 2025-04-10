@@ -16,7 +16,6 @@ public class GameServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException, IOException {
         HttpSession session = req.getSession();
         GameState gameState = (GameState) session.getAttribute("gameState");
-
         if (gameState == null) {
             resp.sendRedirect(req.getContextPath() + "/start");
             return;
@@ -73,7 +72,6 @@ public class GameServlet extends HttpServlet {
                 gameState.setCurrentScene("start");
                 break;
         }
-
         resp.sendRedirect(req.getContextPath() + "/game");
     }
 }
